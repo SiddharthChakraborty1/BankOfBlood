@@ -372,6 +372,7 @@ class AddRequestFragment : Fragment() {
                             {
                                 Snackbar.make(view,"Request added successfully",Snackbar.LENGTH_SHORT).show()
                                 Log.d(TAG, "User id inserted into database")
+                                createNotification()
                             }
                         }
                         reference.child("Blood Group Required").setValue(bloodGroup).addOnCompleteListener {
@@ -413,7 +414,7 @@ class AddRequestFragment : Fragment() {
     {
         val channelId = "com.example.BankOfBlood"
         val channelName = "BankOfBlood"
-        val description = "You are ready to make a request!"
+        val description = "Your request has been added successfully"
         val notificationId = 0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(channelId,channelName, NotificationManager.IMPORTANCE_DEFAULT)
@@ -424,6 +425,7 @@ class AddRequestFragment : Fragment() {
                 .setContentTitle("Ready to go!")
                 .setContentText(description)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setSmallIcon(R.drawable.ic_done)
                 .build()
 
             val notificationManager = NotificationManagerCompat.from(activity!!)

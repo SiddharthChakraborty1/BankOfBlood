@@ -1,5 +1,7 @@
 package com.example.BankOfBlood
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,6 +10,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +19,8 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.translationMatrix
 
@@ -69,6 +74,7 @@ class UserActivity : AppCompatActivity() {
                 locRef.child("Longitude").setValue(longitude.toString()).addOnCompleteListener {
                     if(it.isSuccessful)
                     { Toast.makeText(applicationContext,"Location Stored successfully",Toast.LENGTH_SHORT).show()
+                        createNotification()
                         locationManager?.removeUpdates(locationListener)
 
                     }
@@ -244,7 +250,6 @@ class UserActivity : AppCompatActivity() {
     private fun getLastLocation()
     {
 
-        Log.d("Bhadwa", "get last location called")
 
         try {
             if (ActivityCompat.checkSelfPermission(
@@ -266,6 +271,30 @@ class UserActivity : AppCompatActivity() {
         {
             e.printStackTrace()
 
+        }
+    }
+    fun createNotification()
+    {
+        val channelId = "com.example.BankOfBlood"
+        val channelName = "BankOfBlood"
+        val description = "You are ready to make a request!"
+        val notificationId = 0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationChannel = NotificationChannel(channelId,channelName, NotificationManager.IMPORTANCE_DEFAULT)
+            val manager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.createNotificationChannel(notificationChannel)
+
+            val notification = NotificationCompat.Builder(this, channelId)
+                .setContentTitle("Ready to go!")
+                .setContentText(description)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setSmallIcon(R.drawable.ic_done)
+                .build()
+
+            val notificationManager = NotificationManagerCompat.from(this)
+            notificationManager.notify(notificationId, notification)
+        } else {
+            TODO("VERSION.SDK_INT < O")
         }
     }
 }
