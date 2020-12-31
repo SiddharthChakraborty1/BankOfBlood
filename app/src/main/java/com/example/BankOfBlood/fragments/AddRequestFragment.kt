@@ -323,6 +323,7 @@ class AddRequestFragment : Fragment() {
 
                            val alert = dialogBuilder.create()
                            alert.show()
+                           progressBar.visibility = View.INVISIBLE
 
                        }
                    }
