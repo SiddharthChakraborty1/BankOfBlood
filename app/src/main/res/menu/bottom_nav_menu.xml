@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_requests"
+        android:title="Requests"
+        android:iconTint="@android:color/black"
+        android:id="@+id/nav_requests"
+        app:cnb_iconColor = "@color/colorPrimary"
+        />
+    <item android:icon="@drawable/ic_baseline_dashboard"
+        android:title="Dashboard"
+        android:id="@+id/nav_dashboad"
+        android:iconTint="@android:color/black"
+        app:cnb_iconColor = "@color/colorPrimary"/>
+    <item android:icon="@drawable/ic_request"
+        android:title="Add Request"
+        android:iconTint="@android:color/black"
+        android:id="@+id/nav_request"
+        app:cnb_iconColor = "@color/colorPrimary"/>
+
+</menu>

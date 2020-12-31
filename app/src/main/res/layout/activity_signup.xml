@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/gradient_bg"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/courgette"
+        android:gravity="center"
+        android:text="Welcome! Enter your details"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/courgette"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="Blood Donation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        app:cardElevation="5dp"
+        android:layout_gravity="center">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:id="@+id/etSignupName"
+                    android:hint="Name"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:background="@drawable/style_spinner"
+                android:layout_width="match_parent"
+
+                android:id="@+id/spinnerBlood"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:inputType="phone"
+                    android:id="@+id/etSignupNumber"
+                    android:hint="Phone Number"
+
+                    />
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:inputType="text"
+                    android:id="@+id/etSignupEmail"
+                    android:hint="Email"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:paddingLeft="12dp"
+                    android:id="@+id/etSignupPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Confirm Password"
+                    android:paddingLeft="12dp"
+                    android:id="@+id/etSignupConfPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btnSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/gradient_button_bg"
+
+                android:text="Sign up"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Login!"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/tvSignupToLogin"/>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/colorPrimary"
+    android:layout_margin="10dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/requestRecyclerTvBlood"
+            android:layout_margin = "10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="Blood Requested: "/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:id="@+id/requestRecyclerTvDate"
+            android:text="Date: "
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+

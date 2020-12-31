@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "335214195528",
+    "firebase_url": "https://bankofblood-b64a0-default-rtdb.firebaseio.com",
+    "project_id": "bankofblood-b64a0",
+    "storage_bucket": "bankofblood-b64a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335214195528:android:5785185b240fadd730397d",
+        "android_client_info": {
+          "package_name": "com.example.BankOfBlood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335214195528-pc64iropfrns2sap3qnvgemdnp7mnk6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.BankOfBlood",
+            "certificate_hash": "2b7435a79aa0ce81cabde9fe6e8f19b18efef808"
+          }
+        },
+        {
+          "client_id": "335214195528-6ga2b0cimmdjqsfpfi753njh46ojq7qv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEb1MjrcdJamKtAaejU4JxnAYHS-MZDr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335214195528-6ga2b0cimmdjqsfpfi753njh46ojq7qv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

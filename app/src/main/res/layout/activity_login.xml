@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/courgette"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="Blood Donation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginTop="15dp"
+    app:cardElevation="5dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+
+            android:textSize="25sp"
+
+            android:gravity="center"
+
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:text="Welcome!"
+            />
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:inputType="textEmailAddress"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:id="@+id/etLoginEmail"
+                android:hint="Email"
+
+                />
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_margin="10dp"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+           <androidx.appcompat.widget.AppCompatEditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="textPassword"
+
+               android:hint="Password"
+               android:paddingLeft="12dp"
+               android:id="@+id/etLoginPassword"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:onClick="Login"
+            android:background="@drawable/gradient_button_bg"
+            android:textColor="@android:color/black"
+            android:id="@+id/btnLogin"/>
+
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an acccount? Sign up!"
+        android:textColor="@android:color/black"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:id="@+id/tvSignup"/>
+
+
+</LinearLayout>

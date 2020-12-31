@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:padding="10dp"
+    android:backgroundTint="@color/colorPrimary"
+    android:background="?attr/selectableItemBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+
+    android:layout_margin="10dp"
+    android:elevation="5dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/recyclerViewName"/>
+
+    <TextView
+        android:id="@+id/recyclerViewEmail"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Email: "
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:paddingLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/recyclerViewPhone"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:text="Phone Number: "
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewEmail"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/recyclerViewCallButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="196dp"
+        android:elevation="2dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/ic_calll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/recyclerViewPhone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/recyclerViewEmailButton"
+        android:layout_width="wrap_content"
+        android:elevation="2dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_email"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewCallButton"
+        app:layout_constraintLeft_toLeftOf="@+id/recyclerViewCallButton"
+        app:layout_constraintRight_toRightOf="@+id/recyclerViewCallButton"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
