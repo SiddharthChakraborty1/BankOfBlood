@@ -133,7 +133,7 @@ class AddRequestFragment : Fragment() {
         }
 
         btnAddRequest.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
+            progressBar?.visibility = View.VISIBLE
             donorsArray.clear()
             adapter?.notifyDataSetChanged()
             getUserLocation(view)
@@ -317,7 +317,7 @@ class AddRequestFragment : Fragment() {
 
                            val alert = dialogBuilder.create()
                            alert.show()
-                           progressBar.visibility = View.INVISIBLE
+                           progressBar?.visibility = View.INVISIBLE
 
                        }
                    }

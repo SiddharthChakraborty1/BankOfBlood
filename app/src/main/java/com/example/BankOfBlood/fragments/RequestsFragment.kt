@@ -57,7 +57,7 @@ class RequestsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        progressBarRequests.visibility = View.VISIBLE
+        progressBarRequests?.visibility = View.VISIBLE
        linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayout.VERTICAL,false)
         requestRecyclerView.layoutManager = linearLayoutManager
         adapter = RequestAdapter(requestsArray)
@@ -80,17 +80,19 @@ class RequestsFragment : Fragment() {
                     for(ds: DataSnapshot in datasnapshot.children)
                     {
                         requestsArray.add(ds.key.toString())
-                        progressBarRequests.visibility = View.INVISIBLE
+                        progressBarRequests?.visibility = View.INVISIBLE
                         adapter?.notifyDataSetChanged()
                         Log.d("Requests", "the key is  "+ds.key.toString())
                     }
                 }
                 else
-                {   progressBarRequests.visibility = View.INVISIBLE
-                    Snackbar.make(view,"The requests you make will appear here!",Snackbar.LENGTH_INDEFINITE).setAction("Ok"){
+                {   progressBarRequests?.visibility = View.INVISIBLE
+                    getView()?.let {
+                        Snackbar.make(it,"The requests you make will appear here!",Snackbar.LENGTH_INDEFINITE).setAction("Ok"){
 
+                        }
+                            .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE).show()
                     }
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE).show()
 
 
                 }
