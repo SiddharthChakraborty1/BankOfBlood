@@ -55,4 +55,12 @@ class RequestAdapter(val requestsArray: ArrayList<String>) : RecyclerView.Adapte
         }
         reference.addListenerForSingleValueEvent(valueEventListener)
     }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 }
