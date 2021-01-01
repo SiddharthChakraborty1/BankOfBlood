@@ -15,8 +15,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class RecyclerAdapter(
-    val donorsList: ArrayList<String>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>()
+    val donorsList: ArrayList<String>
+/*val names: ArrayList<String>,
+val emails: ArrayList<String>,
+val numbers: ArrayList<String>*/) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>()
 {
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
@@ -38,11 +42,20 @@ class RecyclerAdapter(
         return donorsList.size
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val id = donorsList[position]
-        var name : String? = null
-        var email : String? = null
-        var phone : String? = null
+        var name: String? = null
+        var email: String? = null
+        var phone: String? = null
+
         val reference = FirebaseDatabase.getInstance().reference.child("Users").child(id)
         val valueEventListener = object: ValueEventListener
         {
@@ -70,6 +83,14 @@ class RecyclerAdapter(
 
         }
         reference.addListenerForSingleValueEvent(valueEventListener)
+
+       /* var name : String? = names[position]
+        var email : String? = emails[position]
+        var phone : String? = numbers[position]
+        holder.textViewName.text = "Name: $name"
+        holder.textViewEmail.text = "Email: $email"
+        holder.textViewPhone.text = "Phone Number: $phone"*/
+
         holder.btnCall.setOnClickListener {
             val num = "tel:$phone"
             val callIntent = Intent(Intent.ACTION_DIAL)

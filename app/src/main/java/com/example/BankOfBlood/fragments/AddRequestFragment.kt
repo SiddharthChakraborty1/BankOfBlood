@@ -57,9 +57,13 @@ class AddRequestFragment : Fragment() {
     private var param2: String? = null
     var userLocation: Location? = null
     var adapter: RecyclerAdapter? = null
+
     private lateinit var linearLayoutManager : LinearLayoutManager
     val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
     val bloodArray = arrayListOf<String>()
+    val names = arrayListOf<String>()
+    val emails = arrayListOf<String>()
+    val numbers = arrayListOf<String>()
    var arrayAdapter: ArrayAdapter<String>? = null
     var bloodGroup: String? = null
     val donorsArray = arrayListOf<String>()
@@ -231,14 +235,15 @@ class AddRequestFragment : Fragment() {
                         if(distance <= 50)
                         {    Log.d(TAG, "Distance less than 50km adding in array")
                             donorsArray.add(id)
+                           // getValues(id)
                             adapter?.notifyDataSetChanged()
                             progressBar.visibility = View.INVISIBLE
+
 
                             Log.i("Recycler View","The element "+id+" has been added to the array")
                             Log.i("Recycler View","The size of the array is "+donorsArray.size.toString())
 
 
-                            // TODO: 21-Dec-20 inflate the recyclerview after thiw activity
                         }
 
 
@@ -255,19 +260,42 @@ class AddRequestFragment : Fragment() {
     }
 
 
+    fun getValues(id: String)
+    {
+        val reference = FirebaseDatabase.getInstance().reference.child("Users").child(id)
+        var name: String? = null
+        var email: String? = null
+        var number: String? = null
+        val valueEventListener = object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
 
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if(p0.exists())
+                {
+                    Log.d("abcd","The donor exists now getting data")
+                    name = p0.child("Name").getValue().toString()
+                    Log.d("abcd","the name is $name")
+                    email = p0.child("Email").getValue().toString()
+                    number = p0.child("Phone Number").getValue().toString()
+                    names.add(name!!)
+                    emails.add(email!!)
+                    numbers.add(number!!)
+
+
+
+                }
+            }
+
+        }
+        reference.addListenerForSingleValueEvent(valueEventListener)
+    }
 
 
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddRequestFragment.
-         */
+
 
         // TODO: Rename and change types and number of parameters
         @JvmStatic
