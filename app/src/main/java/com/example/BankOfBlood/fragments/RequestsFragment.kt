@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.fragment_requests.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -49,13 +50,14 @@ class RequestsFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     @SuppressLint("WrongConstant")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        progressBarRequests.visibility = View.VISIBLE
        linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayout.VERTICAL,false)
         requestRecyclerView.layoutManager = linearLayoutManager
         adapter = RequestAdapter(requestsArray)
@@ -74,7 +76,7 @@ class RequestsFragment : Fragment() {
             override fun onDataChange(datasnapshot: DataSnapshot) {
                 if(datasnapshot.exists())
                 {
-                    progressBarRequests.visibility = View.VISIBLE
+
                     for(ds: DataSnapshot in datasnapshot.children)
                     {
                         requestsArray.add(ds.key.toString())
@@ -84,8 +86,10 @@ class RequestsFragment : Fragment() {
                     }
                 }
                 else
-                {
-                    Snackbar.make(view,"The requests you make will appear here!",Snackbar.LENGTH_INDEFINITE).setAction("Ok",null)
+                {   progressBarRequests.visibility = View.INVISIBLE
+                    Snackbar.make(view,"The requests you make will appear here!",Snackbar.LENGTH_INDEFINITE).setAction("Ok"){
+
+                    }
                         .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE).show()
 
 

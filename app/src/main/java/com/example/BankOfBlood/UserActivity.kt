@@ -98,7 +98,7 @@ class UserActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 if(p0.exists())
                 {
-                    Snackbar.make(fragment_container,"Location is already saved",Snackbar.LENGTH_SHORT).show()
+                   // Snackbar.make(fragment_container,"Location is already saved",Snackbar.LENGTH_SHORT).show()
 
                 }
                 else
