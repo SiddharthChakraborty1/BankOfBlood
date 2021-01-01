@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.BankOfBlood.R
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -52,7 +54,7 @@ class RequestsFragment : Fragment() {
     @SuppressLint("WrongConstant")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progressBarRequests.visibility = View.VISIBLE
+
 
        linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayout.VERTICAL,false)
         requestRecyclerView.layoutManager = linearLayoutManager
@@ -72,6 +74,7 @@ class RequestsFragment : Fragment() {
             override fun onDataChange(datasnapshot: DataSnapshot) {
                 if(datasnapshot.exists())
                 {
+                    progressBarRequests.visibility = View.VISIBLE
                     for(ds: DataSnapshot in datasnapshot.children)
                     {
                         requestsArray.add(ds.key.toString())
@@ -82,7 +85,9 @@ class RequestsFragment : Fragment() {
                 }
                 else
                 {
-                    Log.d("Requests", "datasnapshot does not exist")
+                    Snackbar.make(view,"The requests you make will appear here!",Snackbar.LENGTH_INDEFINITE).setAction("Ok",null)
+                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE).show()
+
 
                 }
             }
