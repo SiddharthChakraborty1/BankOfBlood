@@ -84,12 +84,6 @@ val numbers: ArrayList<String>*/) : RecyclerView.Adapter<RecyclerAdapter.ViewHol
         }
         reference.addListenerForSingleValueEvent(valueEventListener)
 
-       /* var name : String? = names[position]
-        var email : String? = emails[position]
-        var phone : String? = numbers[position]
-        holder.textViewName.text = "Name: $name"
-        holder.textViewEmail.text = "Email: $email"
-        holder.textViewPhone.text = "Phone Number: $phone"*/
 
         holder.btnCall.setOnClickListener {
             val num = "tel:$phone"
