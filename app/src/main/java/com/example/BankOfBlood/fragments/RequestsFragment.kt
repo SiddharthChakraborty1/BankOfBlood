@@ -36,6 +36,7 @@ private const val ARG_PARAM2 = "param2"
 class RequestsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
+    var snackbar: Snackbar? = null
     private var param2: String? = null
     lateinit var linearLayoutManager: LinearLayoutManager
     val requestsArray  = arrayListOf<String>()
@@ -73,7 +74,7 @@ class RequestsFragment : Fragment() {
                 TODO("Not yet implemented")
             }
 
-            override fun onDataChange(datasnapshot: DataSnapshot) {
+            override fun onDataChange(datasnapshot: DataSnapshot){
                 if(datasnapshot.exists())
                 {
 
@@ -87,12 +88,13 @@ class RequestsFragment : Fragment() {
                 }
                 else
                 {   progressBarRequests?.visibility = View.INVISIBLE
-                    getView()?.let {
-                        Snackbar.make(it,"The requests you make will appear here!",Snackbar.LENGTH_INDEFINITE).setAction("Ok"){
 
-                        }
-                            .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE).show()
+                    snackbar = getView()?.let {
+                        Snackbar.make(it,"Requests you make will appear here",Snackbar.LENGTH_INDEFINITE)
+                            .setAction("OK"){}.setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
                     }
+                    snackbar?.show()
+
 
 
                 }
@@ -102,6 +104,14 @@ class RequestsFragment : Fragment() {
         reference.addListenerForSingleValueEvent(valueEvenListener)
 
 
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if(!isVisibleToUser && snackbar != null)
+        {
+            snackbar?.dismiss()
+        }
     }
 
     override fun onCreateView(
