@@ -260,40 +260,6 @@ class AddRequestFragment : Fragment() {
     }
 
 
-    fun getValues(id: String)
-    {
-        val reference = FirebaseDatabase.getInstance().reference.child("Users").child(id)
-        var name: String? = null
-        var email: String? = null
-        var number: String? = null
-        val valueEventListener = object : ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                if(p0.exists())
-                {
-                    Log.d("abcd","The donor exists now getting data")
-                    name = p0.child("Name").getValue().toString()
-                    Log.d("abcd","the name is $name")
-                    email = p0.child("Email").getValue().toString()
-                    number = p0.child("Phone Number").getValue().toString()
-                    names.add(name!!)
-                    emails.add(email!!)
-                    numbers.add(number!!)
-
-
-
-                }
-            }
-
-        }
-        reference.addListenerForSingleValueEvent(valueEventListener)
-    }
-
-
-
     companion object {
 
 
