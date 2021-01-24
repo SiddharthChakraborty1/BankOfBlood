@@ -34,6 +34,9 @@ The user can click on the call or email icon to directly contact the donors
 
 completed functionalities-
 1. Add request
+2. Get Possible donors list
+3. Call the donors from inside the app
+4. Email the donors from inside the app
 2. viewing the requests user made
 
 incomplete functionailities-
